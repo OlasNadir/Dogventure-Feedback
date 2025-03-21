@@ -149,42 +149,44 @@
     <div class="thank-you" id="thankYouMessage">Thank you for your feedback!</div>
   </div>
 
- <script>
-  document.getElementById('surveyForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    // Collect form data
-    const formData = {
-      bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
-      infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
-      communication: document.querySelector('input[name="communication"]:checked')?.value || '',
-      medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
-      behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
-      staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
-      facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
-      tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
-      overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
-      recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
-      additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
-    };
+      // Collect form data
+      const formData = {
+        bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
+        infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
+        communication: document.querySelector('input[name="communication"]:checked')?.value || '',
+        medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
+        behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
+        staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
+        facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
+        tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
+        overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
+        recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
+        additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
+      };
 
-    // Send data to Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbyg4k3s2a76b9GF_YIWTWq1FBNTvfbl-Oh9TeoH19t4v8I_3cViY3SVnsZWmzp-xYgRTw/exec, {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(response => response.text())
-      .then(() => {
-        // Show thank you message
-        document.getElementById('surveyForm').style.display = 'none';
-        document.getElementById('thankYouMessage').style.display = 'block';
+      // Send data to Google Apps Script
+      fetch('https://script.google.com/macros/s/AKfycbyg4k3s2a76b9GF_YIWTWq1FBNTvfbl-Oh9TeoH19t4v8I_3cViY3SVnsZWmzp-xYgRTw/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-      });
-  });
-</script>
+        .then(response => response.text())
+        .then(() => {
+          // Show thank you message
+          document.getElementById('surveyForm').style.display = 'none';
+          document.getElementById('thankYouMessage').style.display = 'block';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        });
+    });
+  </script>
+</body>
+</html>
