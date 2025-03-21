@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DogVenture Feedback Survey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input[type="radio"], select {
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .thank-you {
+      text-align: center;
+      display: none;
+      color: #28a745;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DogVenture Feedback Survey</h1>
+    <form id="surveyForm">
+      <!-- Part 1: Booking Process -->
+      <label>1. How did you find the booking process for your initial assessment?</label>
+      <label><input type="radio" name="bookingProcess" value="Very easy"> Very easy</label>
+      <label><input type="radio" name="bookingProcess" value="Easy"> Easy</label>
+      <label><input type="radio" name="bookingProcess" value="Neutral"> Neutral</label>
+      <label><input type="radio" name="bookingProcess" value="Difficult"> Difficult</label>
+      <label><input type="radio" name="bookingProcess" value="Very difficult"> Very difficult</label>
+
+      <label>2. Was the information provided about the assessment (medical and behavioral) clear and helpful?</label>
+      <label><input type="radio" name="infoClarity" value="Yes, very clear"> Yes, very clear</label>
+      <label><input type="radio" name="infoClarity" value="Somewhat clear"> Somewhat clear</label>
+      <label><input type="radio" name="infoClarity" value="Neutral"> Neutral</label>
+      <label><input type="radio" name="infoClarity" value="Not very clear"> Not very clear</label>
+      <label><input type="radio" name="infoClarity" value="Not clear at all"> Not clear at all</label>
+
+      <label>3. How would you rate the communication from our team during the booking process?</label>
+      <label><input type="radio" name="communication" value="Excellent"> Excellent</label>
+      <label><input type="radio" name="communication" value="Good"> Good</label>
+      <label><input type="radio" name="communication" value="Average"> Average</label>
+      <label><input type="radio" name="communication" value="Poor"> Poor</label>
+      <label><input type="radio" name="communication" value="Very poor"> Very poor</label>
+
+      <!-- Part 2: Initial Assessment Experience -->
+      <label>4. How would you rate the medical assessment process?</label>
+      <label><input type="radio" name="medicalAssessment" value="Excellent"> Excellent</label>
+      <label><input type="radio" name="medicalAssessment" value="Good"> Good</label>
+      <label><input type="radio" name="medicalAssessment" value="Average"> Average</label>
+      <label><input type="radio" name="medicalAssessment" value="Poor"> Poor</label>
+      <label><input type="radio" name="medicalAssessment" value="Very poor"> Very poor</label>
+
+      <label>5. How would you rate the behavioral assessment process?</label>
+      <label><input type="radio" name="behavioralAssessment" value="Excellent"> Excellent</label>
+      <label><input type="radio" name="behavioralAssessment" value="Good"> Good</label>
+      <label><input type="radio" name="behavioralAssessment" value="Average"> Average</label>
+      <label><input type="radio" name="behavioralAssessment" value="Poor"> Poor</label>
+      <label><input type="radio" name="behavioralAssessment" value="Very poor"> Very poor</label>
+
+      <label>6. Were the staff members conducting the assessments professional and knowledgeable?</label>
+      <label><input type="radio" name="staffProfessionalism" value="Yes, very much so"> Yes, very much so</label>
+      <label><input type="radio" name="staffProfessionalism" value="Somewhat"> Somewhat</label>
+      <label><input type="radio" name="staffProfessionalism" value="Neutral"> Neutral</label>
+      <label><input type="radio" name="staffProfessionalism" value="Not really"> Not really</label>
+      <label><input type="radio" name="staffProfessionalism" value="Not at all"> Not at all</label>
+
+      <!-- Part 3: Facility Tour -->
+      <label>7. How would you rate the facility tour?</label>
+      <label><input type="radio" name="facilityTour" value="Excellent"> Excellent</label>
+      <label><input type="radio" name="facilityTour" value="Good"> Good</label>
+      <label><input type="radio" name="facilityTour" value="Average"> Average</label>
+      <label><input type="radio" name="facilityTour" value="Poor"> Poor</label>
+      <label><input type="radio" name="facilityTour" value="Very poor"> Very poor</label>
+
+      <label>8. Did the tour give you a clear understanding of the services and amenities offered at DogVenture?</label>
+      <label><input type="radio" name="tourClarity" value="Yes, very clear"> Yes, very clear</label>
+      <label><input type="radio" name="tourClarity" value="Somewhat clear"> Somewhat clear</label>
+      <label><input type="radio" name="tourClarity" value="Neutral"> Neutral</label>
+      <label><input type="radio" name="tourClarity" value="Not very clear"> Not very clear</label>
+      <label><input type="radio" name="tourClarity" value="Not clear at all"> Not clear at all</label>
+
+      <!-- Part 4: Overall Experience -->
+      <label>9. How satisfied are you with your overall experience at DogVenture today?</label>
+      <label><input type="radio" name="overallSatisfaction" value="Very satisfied"> Very satisfied</label>
+      <label><input type="radio" name="overallSatisfaction" value="Satisfied"> Satisfied</label>
+      <label><input type="radio" name="overallSatisfaction" value="Neutral"> Neutral</label>
+      <label><input type="radio" name="overallSatisfaction" value="Dissatisfied"> Dissatisfied</label>
+      <label><input type="radio" name="overallSatisfaction" value="Very dissatisfied"> Very dissatisfied</label>
+
+      <label>10. Would you recommend DogVenture to other pet owners?</label>
+      <label><input type="radio" name="recommendation" value="Definitely"> Definitely</label>
+      <label><input type="radio" name="recommendation" value="Probably"> Probably</label>
+      <label><input type="radio" name="recommendation" value="Not sure"> Not sure</label>
+      <label><input type="radio" name="recommendation" value="Probably not"> Probably not</label>
+      <label><input type="radio" name="recommendation" value="Definitely not"> Definitely not</label>
+
+      <!-- Part 5: Additional Feedback -->
+      <label>11. Do you have any suggestions or comments to help us improve our services?</label>
+      <textarea name="additionalFeedback" rows="4"></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+    <div class="thank-you" id="thankYouMessage">Thank you for your feedback!</div>
+  </div>
+
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Collect form data
+      const formData = {
+        bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
+        infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
+        communication: document.querySelector('input[name="communication"]:checked')?.value || '',
+        medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
+        behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
+        staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
+        facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
+        tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
+        overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
+        recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
+        additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
+      };
+
+      // Save data to localStorage (or send to a server)
+      const responses = JSON.parse(localStorage.getItem('surveyResponses') || []);
+      responses.push(formData);
+      localStorage.setItem('surveyResponses', JSON.stringify(responses));
+
+      // Show thank you message
+      document.getElementById('surveyForm').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+
+      // Optional: Clear form fields
+      document.getElementById('surveyForm').reset();
+    });
+
+    // Optional: Add a function to review collected data
+    function reviewData() {
+      const responses = JSON.parse(localStorage.getItem('surveyResponses') || []);
+      console.log(responses); // Display in console for review
+    }
+  </script>
+</body>
+</html>
