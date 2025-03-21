@@ -187,5 +187,36 @@
       console.log(responses); // Display in console for review
     }
   </script>
-</body>
+</body><script>
+  document.getElementById('surveyForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Collect form data
+    const formData = {
+      bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
+      infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
+      communication: document.querySelector('input[name="communication"]:checked')?.value || '',
+      medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
+      behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
+      staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
+      facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
+      tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
+      overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
+      recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
+      additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
+    };
+
+    // Save data to localStorage (or send to a server)
+    const responses = JSON.parse(localStorage.getItem('surveyResponses') || []);
+    responses.push(formData);
+    localStorage.setItem('surveyResponses', JSON.stringify(responses));
+
+    // Show thank you message
+    document.getElementById('surveyForm').style.display = 'none';
+    document.getElementById('thankYouMessage').style.display = 'block';
+
+    // Optional: Clear form fields
+    document.getElementById('surveyForm').reset();
+  });
+</script>
 </html>
