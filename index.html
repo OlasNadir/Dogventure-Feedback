@@ -149,44 +149,53 @@
     <div class="thank-you" id="thankYouMessage">Thank you for your feedback!</div>
   </div>
 
-  <script><script>
-  document.getElementById('surveyForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    // Collect form data
-    const formData = {
-      bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
-      infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
-      communication: document.querySelector('input[name="communication"]:checked')?.value || '',
-      medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
-      behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
-      staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
-      facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
-      tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
-      overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
-      recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
-      additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
-    };
+      // Collect form data
+      const formData = {
+        bookingProcess: document.querySelector('input[name="bookingProcess"]:checked')?.value || '',
+        infoClarity: document.querySelector('input[name="infoClarity"]:checked')?.value || '',
+        communication: document.querySelector('input[name="communication"]:checked')?.value || '',
+        medicalAssessment: document.querySelector('input[name="medicalAssessment"]:checked')?.value || '',
+        behavioralAssessment: document.querySelector('input[name="behavioralAssessment"]:checked')?.value || '',
+        staffProfessionalism: document.querySelector('input[name="staffProfessionalism"]:checked')?.value || '',
+        facilityTour: document.querySelector('input[name="facilityTour"]:checked')?.value || '',
+        tourClarity: document.querySelector('input[name="tourClarity"]:checked')?.value || '',
+        overallSatisfaction: document.querySelector('input[name="overallSatisfaction"]:checked')?.value || '',
+        recommendation: document.querySelector('input[name="recommendation"]:checked')?.value || '',
+        additionalFeedback: document.querySelector('textarea[name="additionalFeedback"]').value,
+      };
 
-    // Get existing responses from localStorage or initialize an empty array
-    let responses = [];
-    try {
-      responses = JSON.parse(localStorage.getItem('surveyResponses')) || [];
-    } catch (error) {
-      console.error('Error parsing localStorage data:', error);
-    }
+      // Initialize responses array
+      let responses = [];
 
-    // Add new response to the array
-    responses.push(formData);
+      // Try to parse existing data from localStorage
+      try {
+        const storedData = localStorage.getItem('surveyResponses');
+        if (storedData) {
+          responses = JSON.parse(storedData);
+        }
+      } catch (error) {
+        console.error('Error parsing localStorage data:', error);
+        // If parsing fails, clear the invalid data
+        localStorage.removeItem('surveyResponses');
+      }
 
-    // Save updated responses to localStorage
-    localStorage.setItem('surveyResponses', JSON.stringify(responses));
+      // Add new response to the array
+      responses.push(formData);
 
-    // Show thank you message
-    document.getElementById('surveyForm').style.display = 'none';
-    document.getElementById('thankYouMessage').style.display = 'block';
+      // Save updated responses to localStorage
+      localStorage.setItem('surveyResponses', JSON.stringify(responses));
 
-    // Optional: Clear form fields
-    document.getElementById('surveyForm').reset();
-  });
-</script>
+      // Show thank you message
+      document.getElementById('surveyForm').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+
+      // Optional: Clear form fields
+      document.getElementById('surveyForm').reset();
+    });
+  </script>
+</body>
+</html>
