@@ -149,7 +149,7 @@
     <div class="thank-you" id="thankYouMessage">Thank you for your feedback!</div>
   </div>
 
-  <script>
+ <script>
   document.getElementById('surveyForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -169,7 +169,7 @@
     };
 
     // Send data to Google Apps Script
-    fetch('script.google.com/macros/s/AKfycbwVdTZLEl5YUmKlpIEMWG_mCeZDeA5UnJpk6fmBskaX/dev', {
+    fetch('https://script.google.com/macros/s/AKfycbwVdTZLEl5YUmKlpIEMWG_mCeZDeA5UnJpk6fmBskaX/exec', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
